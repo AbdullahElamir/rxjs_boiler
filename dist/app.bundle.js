@@ -121,7 +121,7 @@
 		console.log(value);
 	}, function (err) {
 		console.log(err);
-	}, function () {
+	}, function (complete) {
 		console.log('completed');
 	});
 

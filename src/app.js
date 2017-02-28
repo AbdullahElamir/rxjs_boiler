@@ -72,11 +72,14 @@ var post =[ { name :"abdullah",age:32},
 const obj = $('#obj');
 const obj$ = Rx.Observable.from(post)
 obj$.subscribe(
-	function(value){
+	value => {
 		obj.append('name : '+value.name+"  , Age : "+ value.age +"<br/>");
 		console.log(value);
-	},function(err){
+	},
+	err => {
 		console.log(err);
-	},function(){
+	},
+	complete => {
 		console.log('completed');
-	})
+	}
+	)
