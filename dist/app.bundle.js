@@ -56,7 +56,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// *******************  Observable fromEvent ************
+	// *******************  Observable from Event ************
 
 
 	// *********************** Click Event ***********************
@@ -64,7 +64,6 @@
 	var btnStream$ = _Rx2.default.Observable.fromEvent(btn, 'click');
 	btnStream$.subscribe(function (e) {
 		console.log(e.target.value);
-
 		output.append(e.target.value + " ---- ");
 	}, function (err) {
 		console.log(err);
@@ -72,7 +71,59 @@
 		console.log("completed");
 	});
 
-	// ************************************************************
+	// ************************input Event ****************************
+
+	var input = (0, _jquery2.default)('#input');
+	var outputinput = (0, _jquery2.default)('#outputinput');
+	var inputStream$ = _Rx2.default.Observable.fromEvent(input, 'keyup');
+	inputStream$.subscribe(function (e) {
+		outputinput.html("<br>");
+		outputinput.html("<h1><br>" + e.currentTarget.value);
+		console.log(e.currentTarget.value);
+	}, function (err) {
+		console.log(err);
+	}, function () {
+		console.log('completed');
+	});
+
+	//******************  mouseMove *********************************
+
+	var mouseMove = (0, _jquery2.default)('#mouseMove');
+	var MoveStream$ = _Rx2.default.Observable.fromEvent(document, 'mousemove');
+	MoveStream$.subscribe(function (e) {
+		mouseMove.html("<br>");
+		mouseMove.html("X: " + e.clientX + ' y: ' + e.clientY);
+	}, function (err) {
+		console.log(err);
+	}, function () {
+		console.log('completed');
+	});
+	//************************ observable from Array ***********************************
+	var array = (0, _jquery2.default)('#array');
+	var a = [1, 2, 3, 4, 5, 55, 4, 23, 12, 223];
+	var array$ = _Rx2.default.Observable.from(a);
+	array$.subscribe(function (value) {
+		array.append(value + " , ");
+		console.log(value);
+	}, function (err) {
+		console.log(err);
+	}, function () {
+		console.log('completed');
+	});
+
+	// ******************** observable object **********
+	var post = [{ name: "abdullah", age: 32 }, { name: "ali", age: 21 }, { name: "ahmed", age: 12 }];
+
+	var obj = (0, _jquery2.default)('#obj');
+	var obj$ = _Rx2.default.Observable.from(post);
+	obj$.subscribe(function (value) {
+		obj.append('name : ' + value.name + "  , Age : " + value.age + "<br/>");
+		console.log(value);
+	}, function (err) {
+		console.log(err);
+	}, function () {
+		console.log('completed');
+	});
 
 /***/ },
 /* 1 */

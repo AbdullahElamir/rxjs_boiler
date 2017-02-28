@@ -1,6 +1,8 @@
-# RxJS Boiler
+# RxJS Abdullah Elamir
 
-Boilerplate for building RxJS applications in a Webpack environment
+Abdullah Elamir
+
+building RxJS applications in a Webpack environment
 
 ### Version
 1.0.0
